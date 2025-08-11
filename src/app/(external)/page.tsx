@@ -1,6 +1,19 @@
-import { redirect } from "next/navigation";
+import { MarketingNavbar } from "@/components/marketing-navbar";
+import { HeroSection } from "@/components/section/hero-section";
 
-export default function Home() {
-  redirect("/dashboard");
-  return <>Coming Soon</>;
-}
+// Navbar dengan animasi slide-down
+
+// HeroSection dengan animasi berurutan
+
+const MarketingPage = () => {
+  return (
+    <>
+      <MarketingNavbar />
+      <main>
+        <HeroSection />
+      </main>
+    </>
+  );
+};
+
+export default MarketingPage;
