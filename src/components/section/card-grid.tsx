@@ -7,7 +7,7 @@ export function CardGrid() {
   const cards = data.map((card, index) => <Card key={card.src} card={card} index={index} />);
 
   return (
-    <div className="w-ful mt-[-70px] h-full">
+    <div className="w-ful h-full">
       <Carousel items={cards} />
     </div>
   );

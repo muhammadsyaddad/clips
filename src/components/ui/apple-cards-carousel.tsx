@@ -95,7 +95,7 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
         <div
           ref={carouselRef}
           onScroll={checkScrollability}
-          className="w-full overflow-y-scroll overscroll-y-auto scroll-smooth py-10 md:py-20 snap-y snap-mandatory [scrollbar-width:none] relative"
+          className="w-full overflow-y-scroll overscroll-y-auto scroll-smooth py-2 md:py-4 snap-y snap-mandatory [scrollbar-width:none] relative"
           // style={{ scrollbarWidth: 'none' }} // fine to keep or style with custom CSS
         >
           {/* fade gradient on bottom so end feels nicer */}

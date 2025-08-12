@@ -1,13 +1,13 @@
 import { CardGrid } from "@/components/section/card-grid";
-import { NavbarResize } from "@/components/section/navbar-resize";
+import { HeroScroll } from "@/components/section/hero-scroll";
+import { ClipsNavigation } from "@/components/section/clip-navigation.tsx";
 
 const MarketingPage = () => {
   return (
-    <div className="bg-background text-foreground w-full">
-      <NavbarResize />
-      <main>
-        <CardGrid />
-      </main>
+    <div className="h-full w-full">
+      <HeroScroll />
+      <ClipsNavigation />
+      <CardGrid />
     </div>
   );
 };
