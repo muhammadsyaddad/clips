@@ -1,18 +1,14 @@
-import { MarketingNavbar } from "@/components/marketing-navbar";
-import { HeroSection } from "@/components/section/hero-section";
-
-// Navbar dengan animasi slide-down
-
-// HeroSection dengan animasi berurutan
+import { CardGrid } from "@/components/section/card-grid";
+import { NavbarResize } from "@/components/section/navbar-resize";
 
 const MarketingPage = () => {
   return (
-    <>
-      <MarketingNavbar />
+    <div className="bg-background text-foreground w-full">
+      <NavbarResize />
       <main>
-        <HeroSection />
+        <CardGrid />
       </main>
-    </>
+    </div>
   );
 };
 
