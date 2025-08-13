@@ -1,6 +1,6 @@
 import { CardGrid } from "@/components/section/card-grid";
-import { HeroScroll } from "@/components/section/hero-scroll";
 import { ClipsNavigation } from "@/components/section/clip-navigation";
+import { HeroScroll } from "@/components/section/hero-scroll";
 
 const MarketingPage = () => {
   return (

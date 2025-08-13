@@ -10,30 +10,43 @@ import { updateContentLayout } from "@/lib/layout-utils";
 import { updateThemeMode } from "@/lib/theme-utils";
 import { setValueToCookie } from "@/server/server-actions";
 import { usePreferencesStore } from "@/stores/preferences/preferences-provider";
-import type { SidebarVariant, SidebarCollapsible, ContentLayout } from "@/types/preferences/layout";
-import { type ThemeMode } from "@/types/preferences/theme";
+import type { SidebarCollapsible, ContentLayout } from "@/types/preferences/layout";
 
 type LayoutControlsProps = {
-  readonly variant: SidebarVariant;
   readonly collapsible: SidebarCollapsible;
   readonly contentLayout: ContentLayout;
 };
 
 export function LayoutControls(props: LayoutControlsProps) {
-  const { variant, collapsible, contentLayout } = props;
+  const { collapsible, contentLayout } = props;
 
   const themeMode = usePreferencesStore((s) => s.themeMode);
   const setThemeMode = usePreferencesStore((s) => s.setThemeMode);
 
-  const handleValueChange = async (key: string, value: any) => {
-    if (key === "theme_mode") {
-      updateThemeMode(value);
-      setThemeMode(value as ThemeMode);
+  // FIX 2: Menggunakan `switch` statement untuk keamanan dan kejelasan.
+  // Ini adalah pola yang paling aman untuk menangani aksi berdasarkan key.
+  const handleValueChange = async (key: "theme_mode" | "content_layout" | "sidebar_collapsible", value: string) => {
+    switch (key) {
+      case "theme_mode":
+        if (value === "light" || value === "dark") {
+          updateThemeMode(value);
+          setThemeMode(value);
+        }
+        break;
+      case "content_layout":
+        // Asumsi ContentLayout adalah string, jika tidak, perlu validasi
+        updateContentLayout(value as ContentLayout);
+        break;
+      case "sidebar_collapsible":
+        // Logika untuk sidebar collapsible bisa ditambahkan di sini
+        break;
+      default:
+        // Menangani kasus jika key tidak dikenali
+        console.warn(`Unhandled setting key: ${key}`);
+        return;
     }
 
-    if (key === "content_layout") {
-      updateContentLayout(value);
-    }
+    // Simpan ke cookie setelah aksi selesai
     await setValueToCookie(key, value);
   };
 
@@ -59,7 +72,9 @@ export function LayoutControls(props: LayoutControlsProps) {
                 variant="outline"
                 type="single"
                 value={themeMode}
-                onValueChange={(value) => handleValueChange("theme_mode", value)}
+                onValueChange={(value) => {
+                  if (value) handleValueChange("theme_mode", value);
+                }}
               >
                 <ToggleGroupItem className="text-xs" value="light" aria-label="Toggle inset">
                   Light
@@ -78,7 +93,9 @@ export function LayoutControls(props: LayoutControlsProps) {
                 variant="outline"
                 type="single"
                 value={collapsible}
-                onValueChange={(value) => handleValueChange("sidebar_collapsible", value)}
+                onValueChange={(value) => {
+                  if (value) handleValueChange("sidebar_collapsible", value);
+                }}
               >
                 <ToggleGroupItem className="text-xs" value="icon" aria-label="Toggle icon">
                   Icon
@@ -97,7 +114,9 @@ export function LayoutControls(props: LayoutControlsProps) {
                 variant="outline"
                 type="single"
                 value={contentLayout}
-                onValueChange={(value) => handleValueChange("content_layout", value)}
+                onValueChange={(value) => {
+                  if (value) handleValueChange("content_layout", value);
+                }}
               >
                 <ToggleGroupItem className="text-xs" value="centered" aria-label="Toggle centered">
                   Centered

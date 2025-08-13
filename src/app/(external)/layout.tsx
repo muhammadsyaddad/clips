@@ -1,7 +1,7 @@
 // src/app/(external)/layout.tsx
+import React from "react";
 
 import { NavbarResize } from "@/components/section/navbar-resize";
-import React from "react";
 
 export default function ExternalLayout({ children }: { children: React.ReactNode }) {
   return (

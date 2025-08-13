@@ -1,10 +1,13 @@
 // Komponen baru untuk navigasi/filter klip
 //
 
+import React from "react";
+
+import { Filter } from "lucide-react";
+
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Filter } from "lucide-react";
-import React from "react";
+
 export function ClipsNavigation() {
   return (
     <section className="bg-background">

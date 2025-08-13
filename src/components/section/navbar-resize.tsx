@@ -1,4 +1,6 @@
 "use client";
+import { useState } from "react";
+
 import {
   Navbar,
   NavBody,
@@ -10,24 +12,9 @@ import {
   MobileNavToggle,
   MobileNavMenu,
 } from "@/components/ui/resizable-navbar";
-import { useState } from "react";
+import { navItems } from "@/lib/constant";
 
 export function NavbarResize({ children }: { children: React.ReactNode }) {
-  const navItems = [
-    {
-      name: "Features",
-      link: "#features",
-    },
-    {
-      name: "Pricing",
-      link: "#pricing",
-    },
-    {
-      name: "Contact",
-      link: "#contact",
-    },
-  ];
-
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
