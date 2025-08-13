@@ -1,6 +1,9 @@
 "use client";
+
+// External imports
 import { useState } from "react";
 
+// Internal imports
 import {
   Navbar,
   NavBody,
@@ -37,9 +40,9 @@ export function NavbarResize({ children }: { children: React.ReactNode }) {
           </MobileNavHeader>
 
           <MobileNavMenu isOpen={isMobileMenuOpen} onClose={() => setIsMobileMenuOpen(false)}>
-            {navItems.map((item, idx) => (
+            {navItems.map((item) => (
               <a
-                key={`mobile-link-${idx}`}
+                key={item.link}
                 href={item.link}
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="relative text-neutral-600 dark:text-neutral-300"
@@ -59,8 +62,6 @@ export function NavbarResize({ children }: { children: React.ReactNode }) {
         </MobileNav>
       </Navbar>
       {children}
-
-      {/* Navbar */}
     </div>
   );
 }

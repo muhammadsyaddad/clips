@@ -7,6 +7,7 @@ import { authMiddleware } from "./middleware/auth-middleware";
 export function middleware(req: NextRequest) {
   // authMiddleware
   const response = authMiddleware(req);
+  // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
   if (response) {
     return response;
   }

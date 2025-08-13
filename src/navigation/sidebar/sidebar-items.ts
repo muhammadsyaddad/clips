@@ -1,22 +1,4 @@
-import {
-  ShoppingBag,
-  Forklift,
-  Mail,
-  MessageSquare,
-  Calendar,
-  Kanban,
-  ReceiptText,
-  Users,
-  Lock,
-  Fingerprint,
-  SquareArrowUpRight,
-  LayoutDashboard,
-  ChartBar,
-  Banknote,
-  Gauge,
-  GraduationCap,
-  type LucideIcon,
-} from "lucide-react";
+import { LayoutDashboard, ChartBar, Banknote, Fingerprint, SquareArrowUpRight, type LucideIcon } from "lucide-react";
 
 export interface NavSubItem {
   title: string;

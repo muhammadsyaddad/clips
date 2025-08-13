@@ -1,5 +1,8 @@
+/* eslint-disable import/order */
 "use client";
+
 import React from "react";
+import Image from "next/image";
 
 import { ContainerScroll } from "../ui/container-scroll-animation";
 
@@ -18,7 +21,7 @@ export function HeroScroll() {
           </>
         }
       >
-        <img
+        <Image
           src={`/linear.webp`}
           alt="hero"
           height={720}
